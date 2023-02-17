@@ -1,5 +1,6 @@
 package com.cathaybk.hiring.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ public class Currency {
 
     @Id
     @Column(name = "en_code", length = 10)
+    @JsonProperty("en_code")
     @NotNull(message = "en_code must not be null")
     @NotBlank(message = "en_code must not be empty")
     private String enCode;
