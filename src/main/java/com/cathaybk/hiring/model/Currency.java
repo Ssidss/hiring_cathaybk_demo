@@ -1,6 +1,10 @@
 package com.cathaybk.hiring.model;
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "currency")
 @Table(name = "currency")
@@ -8,11 +12,14 @@ public class Currency {
 
     @Id
     @Column(name = "en_code", length = 10)
+    @NotNull(message = "en_code must not be null")
+    @NotBlank(message = "en_code must not be empty")
     private String enCode;
     @Column(length = 20)
     private String zh;
     @Column(length = 32)
     private String symbol;
+    @NotNull(message = "rate must not be empty")
     private Float rate;
     private String description;
 
